@@ -7,14 +7,44 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
+<div class="floating-group">
+    
+    <button id="open-help" class="help-btn-pulse">
+        <i class="fas fa-question"></i>
+    </button>
+
+    <div class="cart-icon">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="cart-count">0</span>
+    </div>
+    
+</div>
+
+<div id="help-modal" class="modal">
+    <div class="modal-content" style="max-width: 400px; text-align: left;">
+        <span class="close-help" style="float: right; cursor: pointer; font-size: 28px;">×</span>
+        <h2 style="color: #2067ebb3; margin-bottom: 15px;"><i class="fas fa-info-circle"></i> Como fazer seu pedido:</h2>
+        <div style="line-height: 1.6;">
+            <p><strong>1. Escolha:</strong> Clique em <b>"Adicionar"</b> no prato desejado.</p>
+            <p><strong>2. Carrinho:</strong> Clique no <b>Cesto</b> no canto da tela.</p>
+            <p><strong>3. Envie:</strong> Escolha o pagamento e clique em <b>"Enviar para WhatsApp"</b>.</p>
+            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+            <a href="https://wa.me/556992008985" target="_blank" style="display: block; background: #25d366; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+               <i class="fab fa-whatsapp"></i> Falar com Atendente
+            </a>
+        </div>
+    </div>
+</div>
+
 <body>
 
 <header class="hero-header">
     <div class="social-links-top">
-        <a href="https://wa.me/qr/BC7VTEHUHJGNA1" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/brian._porth/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.google.com/maps/place/Porto+Velho+Shopping/@-8.7481465,-63.8783693,17z/data=!3m1!4b1!4m6!3m5!1s0x92325cb29a99d071:0x7dfd32c8871895ed!8m2!3d-8.7481518!4d-63.8757944!16s%2Fg%2F1213jfg1?entry=ttu&g_ep=EgoyMDI2MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="social-btn google-maps"><i class="fas fa-map-marker-alt"></i></a>
-    </div>
+    <a href="https://wa.me/qr/BC7VTEHUHJGNA1" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/brian._porth/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.google.com/maps/place/Porto+Velho+Shopping/@-8.7481465,-63.8783693,17z/data=!3m1!4b1!4m6!3m5!1s0x92325cb29a99d071:0x7dfd32c8871895ed!8m2!3d-8.7481518!4d-63.8757944!16s%2Fg%2F1213jfg1?entry=ttu&g_ep=EgoyMDI2MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="social-btn google-maps"><i class="fas fa-map-marker-alt"></i></a>
+</div>
 
     <div class="header-overlay">
         <h1>Brian Restaurante</h1>
