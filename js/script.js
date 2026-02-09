@@ -10,9 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const resposta = await fetch(urlPlanilha);
             const dataText = await resposta.text();
             
-            // Converte o CSV em Array de Objetos
-            const linhas = dataText.split('\n').map(linha => linha.split(','));
-            const cabecalho = linhas[0];
+            // Função inteligente para ler CSV mesmo com vírgulas dentro das frases
+            const parseCSV = (text) => {
+                const lines = text.split('\n');
+                return lines.map(line => {
+                    // Essa regra (Regex) separa por vírgula mas ignora as vírgulas dentro de aspas
+                    const result = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+                    return result ? result.map(val => val.replace(/"/g, '')) : [];
+                });
+            };
+
+            const linhas = parseCSV(dataText);
             
             menuData = linhas.slice(1).map(linha => {
                 if (linha.length < 6) return null;
@@ -26,11 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
             }).filter(item => item !== null && item.nome !== "");
 
-            console.log("Dados carregados com sucesso!");
-            renderMenu(); // Só renderiza após carregar tudo
+            console.log("Produtos carregados:", menuData.length);
+            renderMenu(); 
         } catch (error) {
             console.error("Erro ao carregar cardápio:", error);
-            menuContainer.innerHTML = '<p style="text-align:center; padding:20px;">Erro ao carregar o cardápio. Verifique sua conexão.</p>';
         }
     }
 
@@ -199,3 +206,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if(searchInput) searchInput.oninput = () => { showAll = false; renderMenu(); };
 
 });
+
